@@ -112,7 +112,7 @@ class RdbTaskboard < RdbDashboard
           next if principal.id == User.current.id
 
           add_group RdbGroup.new(
-            "assignee-#{id}",
+            "assignee_#{principal.id}",
             principal.name,
             accept: proc {|issue| !issue.assigned_to_id.nil? && issue.assigned_to_id == principal.id },
           )
